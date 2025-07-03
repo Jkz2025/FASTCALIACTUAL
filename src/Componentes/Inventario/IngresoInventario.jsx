@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ButtonFastCali from '../ButtonFastCali.jsx/ButtonFastCali';
 import { useFetchMateriales } from '../Hooks/useFetchMateriales';
-import { useFetchBodegas } from '../Hooks/usefetchbodegas';
+import { useFetchBodegas } from '../Hooks/useFetchbodegas';
 import { supabase } from '../../CreateClient';
 
 const IngresoInventario = () => {

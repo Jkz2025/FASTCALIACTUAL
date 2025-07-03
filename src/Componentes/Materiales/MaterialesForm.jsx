@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../../../src/style';
 import { useFetchMateriales } from '../Hooks/useFetchMateriales';
 import { useNavigate } from "react-router-dom";
-import { useFetchBodegas } from '../Hooks/usefetchbodegas';
+import { useFetchBodegas } from '../Hooks/useFetchBodegas';
 import ButtonFastCali from '../ButtonFastCali.jsx/ButtonFastCali';
 
 const MaterialesForm = () => {

@@ -44,6 +44,7 @@ const App = () => {
         </div>
 
         <Routes>
+          <Route path="/" element={<LoginDashboard />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Empresa" element={<PEmpresa />} />
           <Route path='/FacturacionyPedidos/EnvioDian'  element={<PPEnvioDian />} />

@@ -30,6 +30,7 @@ import PPEnvioDian from "./Componentes/Pantallas/P_EnvioDian/PPEnvioDian";
 import P_ImpresionFacturas from "./Componentes/Pantallas/P_ImpresionFacturas/P_ImpresionFacturas";
 import InvoiceApp from "./Componentes/InvoiceApp/InvoiceApp";
 import IniciarSesion from "./Componentes/IniciarSesion/IniciarSesion";
+import Main from "./Componentes/Main/Main";
 
 const App = () => {
   return (
@@ -44,7 +45,6 @@ const App = () => {
         </div>
 
         <Routes>
-          <Route path="/" element={<LoginDashboard />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Empresa" element={<PEmpresa />} />
           <Route path='/FacturacionyPedidos/EnvioDian'  element={<PPEnvioDian />} />

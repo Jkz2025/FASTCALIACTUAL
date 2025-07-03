@@ -3,7 +3,7 @@ import styles from '../../../src/style';
 import Button from '../Dashboard/Components/Button';
 import { useNavigate } from "react-router-dom";
 import ButtonFastCali from '../ButtonFastCali.jsx/ButtonFastCali';
-import { useFetchBodegas } from '../Hooks/usefetchbodegas';
+import { useFetchBodegas } from '../Hooks/useFetchBodegas';
 
 const  BodegaSearchForm = () => {
 

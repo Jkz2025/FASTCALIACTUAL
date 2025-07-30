@@ -5,7 +5,7 @@ import PUsers from "./Componentes/Pantallas/P_Users/PUsers";
 import PMateriales from "./Componentes/Pantallas/P_Materiales/PMateriales";
 import PPedidos from "./Componentes/Pantallas/P_Pedidos/PPedidos";
 import PEmpresa from "./Componentes/Pantallas/PEmpresa/PEmpresa";
-import Home from "./Componentes/Home/Home";
+import Home from "./Componentes/NavbarComponents/Home/Home";
 import Dashboard from "./Componentes/Dashboard/Dashboard";
 import Navbar from "./Componentes/Dashboard/Navbar/Navbar";
 import styles from '../src/style';
@@ -31,6 +31,10 @@ import P_ImpresionFacturas from "./Componentes/Pantallas/P_ImpresionFacturas/P_I
 import InvoiceApp from "./Componentes/InvoiceApp/InvoiceApp";
 import IniciarSesion from "./Componentes/IniciarSesion/IniciarSesion";
 import Main from "./Componentes/Main/Main";
+import Contactanos from "./Componentes/NavbarComponents/Contactanos/Contactanos";
+import Precios from "./Componentes/NavbarComponents/Precios/Precios";
+import WhoWeAre from "./Componentes/NavbarComponents/WhoWeAre/WhoWeAre";
+
 
 const App = () => {
   return (
@@ -73,6 +77,9 @@ const App = () => {
           <Route path="/GestionPersonas/CrearProveedores" element={<CreateProveedor />} />
           <Route path="/FacturacionyPedidos/Facturacion" element={<PFacturacion />} />
           <Route path="/InvoiceApp" element={<InvoiceApp />} />
+          <Route path="/Contactanos" element={<Contactanos />} />
+          <Route path="/QuienesSomos" element={<WhoWeAre />} />
+          <Route path="/Precios" element={<Precios />} />
           <Route index element={<Home />} />
           <Route path="/iniciar-sesion" element={<IniciarSesion />} />
           {/* Agrega más rutas según sea necesario */}

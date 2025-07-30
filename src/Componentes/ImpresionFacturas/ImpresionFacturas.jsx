@@ -8,6 +8,7 @@ import { useFetchDetallesFactura } from '../Hooks/useFetchDetallesFactura';
 import { useFetchPedidos } from '../Hooks/useFetchPedidos';
 import FormImpresionFacturas from './FormImpresionFacturas';
 import { ReusableTable } from '../Reutilizables/TablaReusable/TablaReusable';
+import Loading from '../Loading/Loading';
 
 export const ImpresionFacturas = () => {
     const [selectedInvoices, setSelectedInvoices] = useState([]);
@@ -22,7 +23,7 @@ export const ImpresionFacturas = () => {
     const [isLoading, setIsLoading ] = useState(true)
 
     // Hooks para obtener datos
-    useFetchFacturas(setFacturas);
+    useFetchFacturas(setFacturas);  
     useFetchEmpresas(setEmpresa)
     useFetchDetallesFactura(setDetalleFacturas)
     useFetchPedidos(setPedidos)
@@ -173,12 +174,7 @@ export const ImpresionFacturas = () => {
     }
 
 if (isLoading) {
-    return (
-        <div className="flex justify-center items-center h-64">
-<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500">
-</div>
-        </div>
-    )
+    return <Loading/>
 }
 
     return (

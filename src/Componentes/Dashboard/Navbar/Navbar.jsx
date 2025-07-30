@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../../../CreateClient";
-import { Menu, ChevronDown, X, Home, Users, Phone, LogIn } from "lucide-react";
+import { Menu, ChevronDown, X } from "lucide-react";
 import { authenticatedNavItems, publicNavItems } from "./constantes";
+import Logo from "../../../assets/logo.png"
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +75,7 @@ const Navbar = () => {
       );
     } else {
       setSession(null);
-      navigate("/");
+      navigate("/iniciar-sesion");
     }
   };
 
@@ -81,12 +83,21 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === title ? null : title);
   };
 
+  const RedirectMain = () => {
+    navigate('/')
+  }
+
   return (
     <nav className="w-full flex py-4 justify-between items-center fixed top-0 left-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black z-50 shadow-lg">
       <div className="w-full px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center ">
+      
+        <img src={Logo} className="w-[50px] px-15 cursor-pointer" alt="logo" onClick={RedirectMain} />
         <Link to="/" className="text-white font-bold text-xl hover:text-blue-400 transition-colors">
           FastCali
         </Link>
+        </div>
+        
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">

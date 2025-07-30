@@ -52,6 +52,8 @@ const LoginDashboard = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900">
+            
+
             <div className="w-full max-w-md">
                 {!session ? (
                     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg shadow-2xl p-8">

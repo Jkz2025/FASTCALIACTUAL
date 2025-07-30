@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../../src/style';
 import Button from '../Dashboard/Components/Button';
 import { useFetchPedidos } from '../Hooks/useFetchPedidos';
 import { useFetchBodegas } from '../Hooks/useFetchBodegas';
 import { useNavigate } from "react-router-dom";
 import ButtonFastCali from '../ButtonFastCali.jsx/ButtonFastCali';
+import Loading from '../Loading/Loading';
 
 const PedidosForm = () => {
 
@@ -26,6 +27,16 @@ const PedidosForm = () => {
     const [showFilterForm, setShowFilterForm] = useState(false);
     const [showCancelButton, setShowCancelButton] = useState(false);
     const [showCreateButton, setShowCreateButton] = useState(true);
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        if (pedidos.length > 0) {
+            setIsLoading(false)
+        }
+
+    }, [pedidos])
+
+
 
     const handleBuscarClick = () => {
         setShowFilterForm(true);
@@ -71,18 +82,22 @@ const PedidosForm = () => {
         });
     };
 
+    if (isLoading) {
+        return <Loading />
+    }
+
     return (
         <div className="max-w-4xl mx-auto my-8 mt-10">
             <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg shadow-lg p-6">
                 <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-                    {showCreateButton && <ButtonFastCali onClick={handleCreatePedido}  text={`Crear Pedido`} />}
+                    {showCreateButton && <ButtonFastCali onClick={handleCreatePedido} text={`Crear Pedido`} />}
                     {showFilterForm ? (
                         <form className="flex flex-wrap gap-2">
                             {/* Input select de cliente */}
                             <div className="flex flex-col">
                                 <label htmlFor="cliente" className="text-gray-400">Cliente:</label>
-                                <select name="cliente"  className="p-2 rounded-lg bg-gray-800 text-white" value={searchParams.u} onChange={handleInputChange}>
-                                    <option value="Selecciona un cliente" className='text-gray-500'  disabled selected>Selecciona un cliente</option>
+                                <select name="cliente" className="p-2 rounded-lg bg-gray-800 text-white" value={searchParams.u} onChange={handleInputChange}>
+                                    <option value="Selecciona un cliente" className='text-gray-500' disabled selected>Selecciona un cliente</option>
                                     {pedidos.map((pedido) => (
                                         <option key={pedido.id} value={pedido.user_id}>{`${pedido.user_id} - ${pedido.user_name}`}</option>
                                     ))}
@@ -91,7 +106,7 @@ const PedidosForm = () => {
                             {/* Input select de bodega */}
                             <div className="flex flex-col">
                                 <label htmlFor="bodega" className="text-gray-400">Bodega:</label>
-                                <select name="bodega"  className="p-2 rounded-lg bg-gray-800 text-white" value={searchParams.bodega} onChange={handleInputChange}>
+                                <select name="bodega" className="p-2 rounded-lg bg-gray-800 text-white" value={searchParams.bodega} onChange={handleInputChange}>
                                     <option value="" className='text-gray-500 ' disabled selected>Selecciona una bodega</option>
                                     {bodegas.map((bod) => (
                                         <option key={bod.id} value={bod.id}>{bod.id} - {bod.name} </option>
@@ -122,7 +137,7 @@ const PedidosForm = () => {
                 <div className='justify-center flex py-4'><ButtonFastCali text={`Cancelar`} onClick={handleCancelarClick} /></div>
             ) : null}
         </div>
-        
+
     );
 }
 
